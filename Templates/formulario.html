@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>DATOS DEL ENCUESTADO</h1>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="rounded p-4" style="background-color: #ffffff;">
+                    <form class="row g-3" method="POST" action="{% url 'procesarformulario' %}">
+                        {% csrf_token %}
+
+                        <div class="col-md-12">
+                            <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="edad" class="form-label">Edad (años)</label>
+                            <input type="number" class="form-control" id="edad" name="edad" min="1" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="sexo" class="form-label">Sexo</label>
+                            <select id="sexo" class="form-select" name="sexo" required>
+                                <option value="">Seleccione su sexo...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="carrera" class="form-label">Carrera</label>
+                            <select id="carrera" class="form-select" name="carrera" required>
+                                <option value="">Seleccione su carrera...</option>
+                                <!-- Opciones de carrera cargadas dinámicamente desde la base de datos -->
+                                {% for carrera in carreras %}
+                                    <option value="{{ carrera }}">{{ carrera }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="grupo" class="form-label">Grupo</label>
+                            <select id="grupo" class="form-select" name="grupo" required>
+                                <option value="">Seleccione el grupo...</option>
+                                <!-- Opciones de grupo cargadas dinámicamente desde la base de datos -->
+                                {% for grupo in grupos %}
+                                    <option value="{{ grupo }}">{{ grupo }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="estadoCivil" class="form-label">Estado Civil</label>
+                            <select id="estadoCivil" class="form-select" name="estadoCivil" required>
+                                <option value="">Seleccione su estado civil...</option>
+                                <option value="Soltero(a)">Soltero(a)</option>
+                                <option value="Casado(a)">Casado(a)</option>
+                                <option value="Divorciado(a)">Divorciado(a)</option>
+                                <option value="Viudo(a)">Viudo(a)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="semestre" class="form-label">Semestre</label>
+                            <input type="number" class="form-control" id="semestre" name="semestre" min="1" max="14" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="correoElectronico" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" required>
+                        </div>
+                        <!-- Agregar más campos aquí si es necesario -->
+
+                        <!-- Resto del contenido del formulario -->
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                                <label class="form-check-label" for="gridCheck">
+                                    Acepto los <a href="/terminos-y-condiciones">términos y condiciones</a> y autorizo la recopilación de mis datos personales.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

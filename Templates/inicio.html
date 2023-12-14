@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <style>
+        /* Estilos específicos para la página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Ajustar altura */
+            margin-top: auto; /* Espacio superior */
+        }
+
+        .jumbotron {
+            background-color: #fff;
+            padding: 30px; /* Reducir el espacio interior */
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px; /* Ajustar ancho máximo */
+            width: 90%;
+            margin: 0 auto; /* Centrar horizontalmente */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Reducir tamaño de fuente */
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem; /* Reducir tamaño de fuente */
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            font-size: 1.2rem; /* Reducir tamaño de fuente del botón */
+            padding: 10px 30px; /* Reducir relleno del botón */
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+            background-color: #4CAF50;
+            border: 2px solid #4CAF50;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+        }
+
+        .btn-primary:active {
+            background-color: #3d8b40;
+            border-color: #3d8b40;
+        }
+    </style>
+
+    <div class="jumbotron-container">
+        <div class="jumbotron">
+            <h1>Bienvenido a la Plataforma de Evaluación de Habilidades Blandas</h1>
+            <p>Las habilidades blandas son fundamentales para el desarrollo personal y profesional.</p>
+            <p>Descubre tus deficiencias y busca ayuda para mejorar tus habilidades blandas.</p>
+            <a href="{% url 'formulario' %}" class="btn btn-primary">Detectar Deficiencias</a>
+        </div>
+    </div>
+{% endblock %}

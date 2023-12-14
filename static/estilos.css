@@ -1,0 +1,54 @@
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos alternos para las filas */
+.table-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos de las etiquetas de las respuestas */
+.custom-label-light {
+    color: #333; /* Color para respuestas claras */
+}
+
+.custom-label-dark {
+    color: #666; /* Color para respuestas oscuras */
+}
+
+/* Estilos para alinear los radios y etiquetas */
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Estilo para resaltar preguntas sin respuesta */
+.pregunta-sin-respuesta {
+    border: 2px solid red;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+/* Estilo para el mensaje de validación */
+.validation-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}

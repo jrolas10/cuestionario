@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfico de Barras con Matplotlib</title>
+    <style>
+        /* Estilos opcionales para el diseño */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Seleccionar Encuestado</h1>
+    <form id="form_encuestado" method="post" action="{% url 'mostrar_graficos' %}">
+        {% csrf_token %}
+        <select id="encuestado" name="encuestado">
+            <option value="">Seleccione un encuestado...</option>
+            {% for encuestado in encuestados %}
+                <option value="{{ encuestado.id }}">{{ encuestado.nombre }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Mostrar Gráficos</button>
+    </form>
+
+    <!-- Contenido del gráfico -->
+    <div class="container">
+        <!-- Detalles del encuestado en tabla -->
+        <h2>Detalles del Encuestado</h2>
+        <table>
+            
+                <tr>
+                    <th>Atributo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>{{ detalles_encuestado.nombre }}</td>
+                </tr>
+                <tr>
+                    <td>Grupo</td>
+                    <td>{{ detalles_encuestado.grupo }}</td>
+                </tr>
+                <tr>
+                    <td>Carrera</td>
+                    <td>{{ detalles_encuestado.carrera }}</td>
+                </tr>
+                <tr>
+                    <td>Semestre</td>
+                    <td>{{ detalles_encuestado.semestre }}</td>
+                </tr>
+                <tr>
+                    <td>Edad</td>
+                    <td>{{ detalles_encuestado.edad }}</td>
+                </tr>
+                <tr>
+                    <td>Correo Electrónico</td>
+                    <td>{{ detalles_encuestado.correo }}</td>
+                </tr>
+            
+        </table>
+
+        <!-- Gráfico generado -->
+        <div id="grafico">
+            <h2>Gráfico de Respuestas</h2>
+            {% if grafico_base64 %}
+                <img src="data:image/png;base64,{{ grafico_base64 }}" alt="Gráfico de respuestas">
+            {% else %}
+                <p>No hay gráfico disponible.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#encuestado').change(function() {
+                $('#form_encuestado').submit();
+            });
+        });
+    </script>
+</body>
+</html>

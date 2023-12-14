@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación</title>
+
+    <!-- Agrega los enlaces CDN de Bootstrap CSS y JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+    <style>
+        /* Estilos personalizados para pantallas pequeñas */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Estilos para el contenedor del formulario */
+        .formulario-container {
+            background-color: #f0f0f0; /* Cambiar el color de fondo */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: #e9f2f9;"> <!-- Fondo azul claro -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Tu Aplicación</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor -->
+    <div class="container mt-5">
+        <!-- Contenido de tu página va aquí -->
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Bienvenido a Tu Aplicación</h1>
+                <p>Contenido de la página...</p>
+            </div>
+        </div>
+        <!-- Contenedor del formulario -->
+        <!-- Contenedor del formulario -->
+<div class="row">
+    <div class="col-md-6 mx-auto text-center formulario-container order-md-2">
+        <!-- Formulario -->
+        <h2>Formulario</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" min="0">
+            </div>
+            <div class="mb-3">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="estadoCivil" class="form-label">Estado Civil</label>
+                <select class="form-select" id="estadoCivil">
+                    <option value="soltero">Soltero/a</option>
+                    <option value="casado">Casado/a</option>
+                    <option value="divorciado">Divorciado/a</option>
+                    <option value="viudo">Viudo/a</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="carrera" class="form-label">Carrera</label>
+                <select class="form-select" id="carrera">
+                    <option value="ingenieriaInformatica">Ingeniería Informática</option>
+                    <option value="ingenieriaElectronica">Ingeniería Electrónica</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="semestre" class="form-label">Semestre</label>
+                <input type="number" class="form-control" id="semestre" min="1">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+
+
+    </div>
+
+</body>
+</html>

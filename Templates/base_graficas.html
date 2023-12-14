@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tu Aplicación</title>
+    <!-- Aquí van tus estilos CSS, enlaces a librerías, etc. -->
+    <style>
+        /* Estilos para el sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .main-content {
+            margin-left: 250px; /* Ajusta el margen para dejar espacio al sidebar */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        
+        <a href="{% url 'mostrar_graficos' %}">MOSTRAR GRAFICA</a>
+        <a href="{% url 'admin:index' %}" target="_blank">Panel de Admin Django</a>
+        <a href="{% url 'mostrar_graficos' %}">MOSTRAR 2</a>
+        <!-- Agrega otros enlaces del sidebar según necesites -->
+    </div>
+
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

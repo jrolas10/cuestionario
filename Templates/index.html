@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECNM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+        }
+        /* Estilo para el contenedor azul */
+        .contenedor-logos {
+            background-color: #fdfdfd;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .imagen-logo {
+            max-width: 10%;
+            height: auto;
+        }
+        /* Clase para la primera imagen */
+        .imagen-logo-1 {
+            max-width: 22%;
+            height: auto;
+            margin-right: 20px; /* Espacio a la derecha de la imagen */
+        }
+        /* Clase para la segunda imagen */
+        .imagen-logo-2 {
+            max-width: 13%;
+            height: auto;
+            margin-right: 30px; /* Espacio a la derecha de la imagen */
+        }
+        /* Clase para la tercera imagen */
+        .imagen-logo-3 {
+            max-width: 5%;
+            height: auto;
+            margin-right: 10px; /* Espacio a la derecha de la imagen */
+        }
+    </style>
+</head>
+<body style="background-color: #dfe0ee;"> 
+    <div class="contenedor-logos">
+       
+        <img src="{% static 'images/logoeducacionsep.png' %}" alt="Logo Educación SEP" class="imagen-logo-1">
+        <img src="{% static 'images/logotecnm.png' %}" alt="Logo TECNM" class="imagen-logo-2">
+        <img src="{% static 'images/logoitt.png' %}" alt="Logo ITT" class="imagen-logo-3">
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0a116d;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/">INICIO</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Contenedor principal -->
+    <div class="container" style="text-align: center;">
+        
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

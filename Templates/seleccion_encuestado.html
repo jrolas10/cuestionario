@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Seleccionar Encuestado</title>
+    </head>
+    <body>
+        <h1>Seleccionar Encuestado</h1>
+        <form id="form_encuestado" method="post" action="{% url 'mostrar_graficos' %}">
+            {% csrf_token %}
+            <select id="encuestado" name="encuestado">
+                <option value="">Seleccione un encuestado...</option>
+                {% for encuestado in encuestados %}
+                    <option value="{{ encuestado.id }}">{{ encuestado.nombre }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Mostrar Gráficos</button>
+        </form>
+
+        <!-- Div para mostrar la gráfica y los detalles del encuestado -->
+        <div class="container" id="container_grafico" style="display: none;">
+            
+            <h2>Gráfico de Barras con Matplotlib</h2>
+            <!-- Detalles del encuestado en tabla -->
+            <div id="detalles_encuestado">
+                <!-- Aquí se mostrarán los detalles del encuestado en una tabla -->
+            </div>
+            <!-- Imagen del gráfico -->
+            <div id="grafico">
+                {% if grafico_base64 %}
+                    <img src="data:image/png;base64,{{ grafico_base64 }}" alt="Gráfico de respuestas">
+                {% endif %}
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#encuestado').change(function() {
+                    $('#form_encuestado').submit();
+                });
+            });
+        </script>
+    </body>
+    </html>
